@@ -1,0 +1,29 @@
+#settings
+#auto-reload yes
+#browser "/usr/local/bin/w3m %u"
+#macro m set browser "/usr/local/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+#macro f set browser "/usr/local/bin/brave %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+
+# Open the URL associated with the current article with mpv(1).  See [1] and [2].  XXX: I
+# hope Newsboat sanitizes `%u`.
+#MACRO M set browser ~/.config/newsboat/mpv.sh ; open-in-browser ; set browser $BROWSER
+#macro O set browser ~/.config/newsboat/mpv.sh ; open-in-browser-and-mark-read ; set browser $BROWSER
+
+macro m set browser "mpv %u </dev/null &>/dev/null &" ; open-in-browser-and-mark-read ; set browser elinks
+
+
+
+# colors
+color background          white   black
+color listnormal          cyan    default
+color listfocus           black   yellow  standout   bold
+color listnormal_unread   blue    default
+color listfocus_unread    yellow  default  bold
+color info                red     black    bold
+color article             cyan    default
+
+
+
+# highlights
+highlight article "^(Feed|Title|Link|Date|Author):.*$" color31 color0 
+highlight article "https?://[^ ]+" color9 color0 protect
